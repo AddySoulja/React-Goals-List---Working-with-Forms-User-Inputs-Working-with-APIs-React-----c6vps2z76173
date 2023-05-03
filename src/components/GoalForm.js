@@ -8,7 +8,7 @@ const GoalForm = ({ setAllGoals }) => {
     setAllGoals((goals) => {
       return [
         ...goals,
-        <li key={allGoals.length + 1}>
+        <li key={goals.length + 1}>
           My goal is to {goalRef.current.value}, by {byRef.current.value}.
         </li>,
       ];
