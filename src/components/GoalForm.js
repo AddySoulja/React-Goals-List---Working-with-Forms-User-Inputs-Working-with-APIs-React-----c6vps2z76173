@@ -6,14 +6,14 @@ const initialForm = {
 };
 const GoalForm = ({ allGoals, setAllGoals }) => {
   const [formData, setFormData] = useState(initialForm);
-  const goalRef = useRef();
-  const byRef = useRef();
+  // const goalRef = useRef();
+  // const byRef = useRef();
   const handleSubmit = (e) => {
     e.preventDefault();
     setAllGoals([
       ...allGoals,
       <li key={allGoals.length + 1}>
-        My goal is to {goalRef.current.value}, by {byRef.current.value}.
+        My goal is to {formData.goal}, by {formData.by}.
       </li>,
     ]);
     setFormData(initialForm);
@@ -27,17 +27,17 @@ const GoalForm = ({ allGoals, setAllGoals }) => {
           type="text"
           name="goal"
           placeholder="Goal..."
-          ref={goalRef}
-          // value={formData.goal}
-          // onChange={(e) => setFormData({ ...formData, goal: e.target.value })}
+          // ref={goalRef}
+          value={formData.goal}
+          onChange={(e) => setFormData({ ...formData, goal: e.target.value })}
         />
         <input
           type="text"
           name="by"
           placeholder="By..."
-          ref={byRef}
-          // value={formData.by}
-          // onChange={(e) => setFormData({ ...formData, by: e.target.value })}
+          // ref={byRef}
+          value={formData.by}
+          onChange={(e) => setFormData({ ...formData, by: e.target.value })}
         />
         <button type="submit">Add</button>
       </form>
